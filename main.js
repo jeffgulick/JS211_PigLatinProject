@@ -10,11 +10,27 @@ const rl = readline.createInterface({
   output: process.stdout
 });
 
-
+//func that converts words to pig latin. changes string into array and checks for vowel as first letter,
+//manipulates array into correct pig latin form
 const pigLatin = (word) => {
-
-  // Your code here
-
+  let newArr = word.toLowerCase().trim().split('');
+  const vowels = ['a', 'e', 'i', 'o', 'u'];
+ 
+  if (vowels.includes(newArr[0])){
+    return newArr.concat('yay').join().replace(/,/g, '');
+  } 
+  
+  //below finds the first vowel and manipulates into pig latin
+  else {
+    for (let i = 0; i < newArr.length; i++){
+      if (vowels.includes(newArr[i])){
+        let leftOvers = newArr.splice(i);
+        let tempo = newArr.concat('ay');
+        return leftOvers.concat(tempo).join('').replace(/,/g, '').trim().toLowerCase(); 
+      }
+    }
+  
+  }
 }
 
 // the first function called in the program to get an input from the user
@@ -26,10 +42,9 @@ const getPrompt = () => {
     getPrompt();
   });
 }
-
-// Unit Tests
-// You use them run the command: npm test main.js
-// to close them ctrl + C
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Unit Tests///////////////////////////////////////////////////////////////////////////////////////////////////////////
 if (typeof describe === 'function') {
 
   describe('#pigLatin()', () => {
