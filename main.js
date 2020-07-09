@@ -29,7 +29,6 @@ const pigLatin = (word) => {
         return leftOvers.concat(tempo).join('').replace(/,/g, '').trim().toLowerCase(); 
       }
     }
-  
   }
 }
 
