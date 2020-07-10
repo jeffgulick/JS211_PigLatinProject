@@ -12,6 +12,9 @@ const rl = readline.createInterface({
 
 //func that converts words to pig latin. changes string into array and checks for vowel as first letter,
 //manipulates array into correct pig latin form
+const sentence = (words) => {
+  
+}
 const pigLatin = (word) => {
   let newArr = word.toLowerCase().trim().split('');
   const vowels = ['a', 'e', 'i', 'o', 'u'];
